@@ -1069,3 +1069,76 @@ document.getElementById("clearCSV").addEventListener("click", () => {
 
     alert("Archivo CSV y datos limpiados.");
 });
+
+// Enviar formulario manual a backend
+document.getElementById('formIndividual').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const data = {
+        PROVINCIA: provinciaSelect.value,
+        PRODUCTO: productoSelect.value,
+        TIPO_IFI: tipoIfiSelect.value,
+        IFI: ifiSelect.value,
+        MONTO_CUOTA_INICIAL: parseFloat(document.getElementById('monto_cuota_inicial').value),
+        MONTO_VALOR_VIVIENDA: parseFloat(document.getElementById('monto_valor_vivienda').value),
+        INGRESO_MENSUAL_CLIENTE: parseFloat(document.getElementById('ingreso_mensual').value),
+    };
+
+    try {
+        const response = await fetch('http://127.0.0.1:8000/predict_manual', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        });
+
+        if (!response.ok) throw new Error('Error en la petición');
+
+        const result = await response.json();
+
+        document.getElementById('resultIndividual').textContent = `Monto predicho: S/. ${result.predicted_monto.toFixed(2)}`;
+
+    } catch (error) {
+        alert('Error al obtener la predicción');
+        console.error(error);
+    }
+});
+
+//Enviar archivo CSV a backend
+document.getElementById('procesarCSV').addEventListener('click', async () => {
+    const input = document.getElementById('csvFile');
+    const output = document.getElementById('csvOutput');
+    const message = document.getElementById('csvMessage');
+
+    output.textContent = '';
+    message.textContent = '';
+
+    if (!input.files.length) {
+        alert('Por favor, selecciona un archivo CSV.');
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append('file', input.files[0]);
+
+    try {
+        const response = await fetch('http://127.0.0.1:8000/predict_csv', {
+            method: 'POST',
+            body: formData
+        });
+
+        if (!response.ok) throw new Error('Error en la petición');
+
+        const data = await response.json();
+
+        if (data.predictions && data.predictions.length > 0) {
+            output.textContent = data.predictions.map((p, i) => `Fila ${i + 1}: S/. ${p.toFixed(2)}`).join('\n');
+        } else {
+            message.textContent = 'No se obtuvieron predicciones.';
+        }
+    } catch (error) {
+        message.textContent = 'Error al procesar el archivo.';
+        console.error(error);
+    }
+});
