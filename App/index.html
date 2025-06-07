@@ -17,7 +17,6 @@
 
     <!-- Formulario manual -->
     <section id="sectionManual">
-
         <form id="formIndividual">
             <label for="provincia">Provincia</label>
             <select id="provincia" name="PROVINCIA" required>
@@ -50,7 +49,6 @@
 
             <button type="submit" class="submit-btn">Predecir Monto</button>
         </form>
-
         <div id="resultIndividual"></div>
     </section>
 
@@ -61,12 +59,16 @@
 
             <label for="csvFile">Selecciona un archivo CSV</label>
             <input type="file" id="csvFile" accept=".csv" />
-            <button id="clearCSV" type="button">Eliminar CSV</button> 
+            <button id="clearCSV" type="button">Eliminar CSV</button>
 
             <button id="procesarCSV" type="button">Predecir</button>
 
             <div id="csvOutput"></div>
             <div id="csvMessage"></div>
+            <!-- Botón de descarga del CSV resultante -->
+            <a id="downloadLink" style="display:none;" download="predicciones.csv">
+                <button type="button">Descargar CSV con predicciones</button>
+            </a>
         </div>
     </section>
 

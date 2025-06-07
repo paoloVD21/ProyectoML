@@ -24,7 +24,6 @@ btnCSV.addEventListener('click', showCSV);
 // Inicializar mostrando manual
 showManual();
 
-
 // Data provincias
 const dataProvincia = {
     "ABANCAY": {
@@ -1105,14 +1104,14 @@ document.getElementById('formIndividual').addEventListener('submit', async (e) =
     }
 });
 
-//Enviar archivo CSV a backend
+// Enviar archivo CSV al backend
 document.getElementById('procesarCSV').addEventListener('click', async () => {
     const input = document.getElementById('csvFile');
     const output = document.getElementById('csvOutput');
     const message = document.getElementById('csvMessage');
 
     output.textContent = '';
-    message.textContent = '';
+    message.textContent = 'Procesando...';  // Mensaje al usuario mientras se procesa el archivo
 
     if (!input.files.length) {
         alert('Por favor, selecciona un archivo CSV.');
@@ -1130,13 +1129,19 @@ document.getElementById('procesarCSV').addEventListener('click', async () => {
 
         if (!response.ok) throw new Error('Error en la petición');
 
-        const data = await response.json();
+        // Crear un enlace para descargar el archivo CSV generado
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = url;
+        a.download = 'predicciones.csv';  // Este es el nombre del archivo CSV que el usuario descargará
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
 
-        if (data.predictions && data.predictions.length > 0) {
-            output.textContent = data.predictions.map((p, i) => `Fila ${i + 1}: S/. ${p.toFixed(2)}`).join('\n');
-        } else {
-            message.textContent = 'No se obtuvieron predicciones.';
-        }
+        message.textContent = 'Archivo descargado con éxito'; // Indica que la descarga fue exitosa
+
     } catch (error) {
         message.textContent = 'Error al procesar el archivo.';
         console.error(error);
