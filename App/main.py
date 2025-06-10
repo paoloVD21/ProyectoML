@@ -1,10 +1,12 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 from fastapi.responses import StreamingResponse
 import pandas as pd
 import io
+import os
 import joblib
 import numpy as np
 
@@ -40,6 +42,14 @@ class ManualData(BaseModel):
 
 # Despligue 
 pipeline = joblib.load("App/modelo_creditoXGB.pkl")
+
+# Ruta para servir el archivo HTML en la raíz
+@app.get("/", response_class=HTMLResponse)
+async def serve_html():
+    file_path = os.path.join("App/static", "index.html")
+    with open(file_path, "r") as f:
+        html_content = f.read()
+    return HTMLResponse(content=html_content)
 
 @app.post("/predict_manual")
 async def predict_manual(data: ManualData):
