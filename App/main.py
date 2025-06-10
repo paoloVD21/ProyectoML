@@ -1,5 +1,6 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from fastapi.responses import StreamingResponse
 import pandas as pd
@@ -8,6 +9,9 @@ import joblib
 import numpy as np
 
 app = FastAPI()
+
+# Servir archivos estáticos
+app.mount("/static", StaticFiles(directory="App/static"), name="static")
 
 # Permitir CORS desde frontend
 app.add_middleware(
