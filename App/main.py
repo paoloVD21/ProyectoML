@@ -46,6 +46,7 @@ pipeline = joblib.load("App/modelo_creditoXGB.pkl")
 
 # Ruta para servir el archivo HTML en la raíz
 @app.get("/", response_class=HTMLResponse)
+@app.head("/")
 async def serve_html():
     file_path = os.path.join("App/static", "index.html")
     with open(file_path, "r") as f:

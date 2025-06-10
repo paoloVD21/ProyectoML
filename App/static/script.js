@@ -487,7 +487,9 @@ document.getElementById('formIndividual').addEventListener('submit', async (e) =
     };
 
     try {
-        const response = await fetch('http://127.0.0.1:8000/predict_manual', {
+        const response = await fetch('https://proyectoml-37r0.onrender.com/predict_manual', {
+            // Local
+            // const response = await fetch('http://127.0.0.1:8000/predict_manual', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -525,7 +527,9 @@ document.getElementById('procesarCSV').addEventListener('click', async () => {
     formData.append('file', input.files[0]);
 
     try {
-        const response = await fetch('http://127.0.0.1:8000/predict_csv', {
+        const response = await fetch('https://proyectoml-37r0.onrender.com/predict_csv', {
+            // Local
+            // const response = await fetch('http://127.0.0.1:8000/predict_csv', {
             method: 'POST',
             body: formData
         });
