@@ -30,7 +30,12 @@ class ManualData(BaseModel):
 
 # Cargar pipeline/modelo previamente entrenado
 # Ajusta el path según donde guardaste el modelo
-pipeline = joblib.load("D:/UNIVERSIDAD/UNIVERSIDAD_CICLO09/MACHINE LEARNING/PROYECTO_ML/App/modelo_creditoXGB.pkl")
+
+#Local
+# pipeline = joblib.load("D:/UNIVERSIDAD/UNIVERSIDAD_CICLO09/MACHINE LEARNING/PROYECTO_ML/App/modelo_creditoXGB.pkl")
+
+# Despligue 
+pipeline = joblib.load("App/modelo_creditoXGB.pkl")
 
 @app.post("/predict_manual")
 async def predict_manual(data: ManualData):
