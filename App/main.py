@@ -18,7 +18,7 @@ app.mount("/static", StaticFiles(directory="App/static"), name="static")
 # Permitir CORS desde frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # Despliegue
+    allow_origins=["https://proyectoml-37r0.onrender.com"], # Despliegue
     # allow_origins=["http://127.0.0.1:5500"], Local
     allow_credentials=True,
     allow_methods=["*"],
