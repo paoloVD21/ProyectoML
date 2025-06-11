@@ -28,314 +28,152 @@ showManual();
 const dataProvincia = {
     "AREQUIPA": {
         "FCTP": {
-            "BANCO": ["BANCO PICHINCHA", "CONTINENTAL"],
-            "EDPYME": ["EDPYME MICASITA"]
-        },
-        "NCMV": {
-            "BANCO": ["BANBIF", "BANCO PICHINCHA", "CONTINENTAL", "CREDITO", "INTERBANK", "SCOTIABANK"],
-            "CMAC": ["CMAC AREQUIPA", "CMAC CUSCO", "CMAC HUANCAYO"],
-            "EDPYME": ["EDPYME MICASITA"]
-        },
-        "NMIV": {
-            "BANCO": ["BANBIF", "BANCO PICHINCHA", "COMERCIO", "CONTINENTAL", "CREDITO", "INTERBANK", "SCOTIABANK"],
-            "CMAC": ["CMAC AREQUIPA", "CMAC CUSCO", "CMAC HUANCAYO"],
+            "BANCO": ["BANCO PICHINCHA"],
             "EDPYME": ["EDPYME MICASITA"],
-            "FINANCIERA": ["CREDISCOTIA"]
-        },
-        "S-CRC": {
-            "BANCO": ["CREDITO"]
-        }
-    },
-    "ASCOPE": {
-        "FCTP": {
-            "EDPYME": ["EDPYME MICASITA", "EMPRESA DE CREDITO VIVELA S.A."]
+            "CMAC": ["CMAC CUSCO"]
         },
         "NCMV": {
-            "BANCO": ["CREDITO"],
-            "CMAC": ["CMAC HUANCAYO", "CMAC TRUJILLO"]
+            "BANCO": ["CREDITO", "INTERBANK"],
+            "CMAC": ["CMAC AREQUIPA", "CMAC CUSCO", "CMAC HUANCAYO"]
         },
         "NMIV": {
-            "BANCO": ["INTERBANK"],
-            "CMAC": ["CMAC HUANCAYO"]
+            "BANCO": ["CREDITO", "INTERBANK"],
+            "CMAC": ["CMAC AREQUIPA", "CMAC CUSCO", "CMAC HUANCAYO"]
         }
     },
     "CALLAO": {
         "NCMV": {
-            "BANCO": ["BANBIF", "BANCO PICHINCHA", "COMERCIO", "CONTINENTAL", "CREDITO", "INTERBANK", "SCOTIABANK"],
-            "CMAC": ["CMAC AREQUIPA", "CMAC CUSCO", "CMAC HUANCAYO"],
-            "CRAC": ["CRAC RAIZ"],
-            "EDPYME": ["EDPYME MICASITA"],
-            "FINANCIERA": ["FINANCIERA EFECTIVA S. A"]
+            "BANCO": ["CONTINENTAL", "CREDITO", "INTERBANK"],
+            "EDPYME": ["EDPYME MICASITA"]
         },
         "NMIV": {
-            "BANCO": ["BANBIF", "BANCO PICHINCHA", "COMERCIO", "CONTINENTAL", "CREDITO", "INTERBANK", "SCOTIABANK"],
-            "CMAC": ["CMAC AREQUIPA", "CMAC CUSCO", "CMAC HUANCAYO", "CMAC TRUJILLO"],
-            "EDPYME": ["EDPYME MICASITA", "EMPRESA DE CREDITO VIVELA S.A."],
-            "FINANCIERA": ["CREDISCOTIA", "FINANCIERA EFECTIVA S. A"]
-        },
-        "S-CRC": {
-            "BANCO": ["CREDITO", "INTERBANK"]
-        }
-    },
-    "CAMANA": {
-        "NCMV": {
-            "CMAC": ["CMAC ICA"]
-        },
-        "NMIV": {
-            "BANCO": ["CREDITO"],
-            "CMAC": ["CMAC HUANCAYO"]
+            "BANCO": ["CONTINENTAL", "INTERBANK"],
+            "EDPYME": ["EDPYME MICASITA", "EMPRESA DE CREDITO VIVELA S.A."]
         }
     },
     "CANIETE": {
         "FCTP": {
-            "BANCO": ["BANCO PICHINCHA", "CONTINENTAL"],
-            "FINANCIERA": ["FINANCIERA EFECTIVA S. A"]
-        },
-        "NCMV": {
-            "BANCO": ["BANBIF", "BANCO PICHINCHA", "CONTINENTAL", "CREDITO"],
-            "CMAC": ["CMAC HUANCAYO", "CMAC ICA"],
-            "FINANCIERA": ["FINANCIERA EFECTIVA S. A"]
-        },
-        "NMIV": {
-            "BANCO": ["BANBIF", "BANCO PICHINCHA", "COMERCIO", "CONTINENTAL", "CREDITO", "INTERBANK"],
-            "CMAC": ["CMAC HUANCAYO", "CMAC TRUJILLO"],
-            "FINANCIERA": ["FINANCIERA EFECTIVA S. A"]
-        }
-    },
-    "CAYLLOMA": {
-        "NCMV": {
-            "BANCO": ["CREDITO"]
-        },
-        "NMIV": {
-            "CMAC": ["CMAC AREQUIPA"]
+            "BANCO": ["BANCO PICHINCHA", "CONTINENTAL"]
         }
     },
     "CHEPEN": {
         "FCTP": {
             "CMAC": ["CMAC HUANCAYO"]
-        },
-        "NCMV": {
-            "BANCO": ["CONTINENTAL", "CREDITO", "INTERBANK"],
-            "CMAC": ["CMAC HUANCAYO"]
-        },
-        "NMIV": {
-            "BANCO": ["CREDITO"],
-            "CMAC": ["CMAC HUANCAYO"]
         }
     },
     "CHICLAYO": {
         "FCTP": {
-            "BANCO": ["BANCO PICHINCHA", "CONTINENTAL"],
             "CMAC": ["CMAC HUANCAYO"],
             "EDPYME": ["EDPYME MICASITA", "EMPRESA DE CREDITO VIVELA S.A."]
         },
         "NCMV": {
-            "BANCO": ["BANBIF", "BANCO PICHINCHA", "COMERCIO", "CONTINENTAL", "CREDITO", "INTERBANK", "SCOTIABANK"],
-            "CMAC": ["CMAC HUANCAYO", "CMAC TRUJILLO"],
-            "EDPYME": ["EDPYME MICASITA"]
+            "BANCO": ["CREDITO", "BANCO PICHINCHA", "INTERBANK"],
+            "CMAC": ["CMAC HUANCAYO", "CMAC TRUJILLO"]
         },
         "NMIV": {
-            "BANCO": ["BANBIF", "BANCO PICHINCHA", "COMERCIO", "CONTINENTAL", "CREDITO", "INTERBANK", "SCOTIABANK"],
-            "CMAC": ["CMAC HUANCAYO", "CMAC TRUJILLO"],
+            "BANCO": ["CREDITO", "INTERBANK"],
             "EDPYME": ["EDPYME MICASITA", "EMPRESA DE CREDITO VIVELA S.A."]
         }
     },
     "CHINCHA": {
         "FCTP": {
-            "BANCO": ["BANBIF"],
-            "CAC": ["CAC PACIFICO"],
             "EDPYME": ["EDPYME MICASITA"],
             "CMAC": ["CMAC ICA"]
-        },
-        "NCMV": {
-            "BANCO": ["BANBIF", "BANCO PICHINCHA", "CONTINENTAL", "CREDITO", "SCOTIABANK"]
-        },
-        "NMIV": {
-            "BANCO": ["BANBIF", "BANCO PICHINCHA", "CONTINENTAL", "CREDITO", "INTERBANK"],
-            "CMAC": ["CMAC HUANCAYO", "CMAC ICA"],
-            "EDPYME": ["EDPYME MICASITA", "EMPRESA DE CREDITO VIVELA S.A."]
-        }
-    },
-    "HUAURA": {
-        "FCTP": {
-            "EDPYME": ["EDPYME MICASITA"]
-        },
-        "NCMV": {
-            "BANCO": ["BANCO PICHINCHA", "COMERCIO", "CREDITO", "INTERBANK", "SCOTIABANK"]
-        },
-        "NMIV": {
-            "BANCO": ["CONTINENTAL", "CREDITO", "SCOTIABANK"]
-        }
-    },
-    "HUAYLAS": {
-        "NCMV": {
-            "BANCO": ["CREDITO", "INTERBANK"]
-        }
-    },
-    "HUAYTARA": {
-        "NCMV": {
-            "BANCO": ["INTERBANK"]
         }
     },
     "ICA": {
         "FCTP": {
-            "BANCO": ["BANCO PICHINCHA", "CONTINENTAL", "INTERBANK"],
-            "CMAC": ["CMAC HUANCAYO", "CMAC ICA", "CMAC TRUJILLO"],
-            "CRAC": ["CRAC RAIZ"],
+            "BANCO": ["CONTINENTAL", "CREDITO"],
+            "CMAC": ["CMAC HUANCAYO", "CMAC ICA"]
+        },
+        "NCMV": {
+            "BANCO": ["BANBIF"],
+            "CMAC": ["CMAC ICA"],
             "EDPYME": ["EDPYME MICASITA"]
         },
-        "NCMV": {
-            "BANCO": ["BANBIF", "BANCO PICHINCHA", "CONTINENTAL", "CREDITO", "INTERBANK", "SCOTIABANK"],
-            "CMAC": ["CMAC AREQUIPA", "CMAC CUSCO", "CMAC HUANCAYO", "CMAC ICA", "CMAC TRUJILLO"],
-            "FINANCIERA": ["CREDISCOTIA", "FINANCIERA EFECTIVA S. A"]
-        },
         "NMIV": {
-            "BANCO": ["BANBIF", "BANCO PICHINCHA", "COMERCIO", "CONTINENTAL", "CREDITO", "INTERBANK", "SCOTIABANK"],
-            "CMAC": ["CMAC AREQUIPA", "CMAC CUSCO", "CMAC HUANCAYO", "CMAC ICA"],
-            "EDPYME": ["EDPYME MICASITA", "EMPRESA DE CREDITO VIVELA S.A."],
-            "FINANCIERA": ["CREDISCOTIA"]
-        }
-    },
-    "ISLAY": {
-        "NCMV": {
-            "BANCO": ["CREDITO"],
-            "CMAC": ["CMAC HUANCAYO"]
-        },
-        "NMIV": {
-            "BANCO": ["CREDITO"],
-            "CMAC": ["CMAC AREQUIPA"]
+            "BANCO": ["BANBIF"],
+            "CMAC": ["CMAC ICA"],
+            "EDPYME": ["EDPYME MICASITA"]
         }
     },
     "LAMBAYEQUE": {
         "FCTP": {
             "BANCO": ["CONTINENTAL"],
-            "EDPYME": ["EMPRESA DE CREDITO VIVELA S.A.", "EDPYME MICASITA"],
-            "FINANCIERA": ["CREDISCOTIA", "FINANCIERA EFECTIVA S. A"]
-        },
-        "NCMV": {
-            "BANCO": ["BANCO PICHINCHA", "BANBIF", "COMERCIO", "CONTINENTAL", "CREDITO", "INTERBANK", "SCOTIABANK"],
-            "CMAC": ["CMAC HUANCAYO", "CMAC TRUJILLO"],
             "EDPYME": ["EDPYME MICASITA"]
         },
+        "NCMV": {
+            "BANCO": ["CREDITO"]
+        },
         "NMIV": {
-            "BANCO": ["BANCO PICHINCHA", "BANBIF", "COMERCIO", "CONTINENTAL", "CREDITO"],
-            "CMAC": ["CMAC HUANCAYO", "CMAC TRUJILLO"],
-            "EDPYME": ["EMPRESA DE CREDITO VIVELA S.A.", "EDPYME MICASITA"],
-            "FINANCIERA": ["CREDISCOTIA", "FINANCIERA EFECTIVA S. A"]
+            "CMAC": ["CMAC HUANCAYO"]
         }
     },
     "LIMA": {
         "FCTP": {
-            "BANCO": ["BANCO PICHINCHA", "CONTINENTAL", "INTERBANK"],
-            "CAC": ["CAC PACIFICO"],
-            "EDPYME": ["EDPYME MICASITA", "EMPRESA DE CREDITO VIVELA S.A."],
-            "FINANCIERA": ["FINANCIERA EFECTIVA S. A"]
+            "EDPYME": ["EDPYME MICASITA", "EMPRESA DE CREDITO VIVELA S.A."]
         },
         "NCMV": {
-            "BANCO": ["BANBIF", "BANCO PICHINCHA", "COMERCIO", "CONTINENTAL", "CREDITO", "INTERBANK", "SCOTIABANK"],
-            "CMAC": ["CMAC AREQUIPA", "CMAC CUSCO", "CMAC HUANCAYO", "CMAC ICA", "CMAC SULLANA"],
-            "CAC": ["CAC PACIFICO"]
-        },
-        "NMIV": {
-            "BANCO": ["BANBIF", "BANCO PICHINCHA", "COMERCIO", "CONTINENTAL", "CREDITO", "INTERBANK", "SCOTIABANK"],
-            "CMAC": ["CMAC AREQUIPA", "CMAC CUSCO", "CMAC HUANCAYO", "CMAC ICA", "CMAC TRUJILLO"],
-            "CAC": ["CAC PACIFICO"],
-            "EDPYME": ["EDPYME MICASITA", "EMPRESA DE CREDITO VIVELA S. A"],
+            "BANCO": ["BANBIF", "BANCO PICHINCHA", "CONTINENTAL", "CREDITO", "INTERBANK", "SCOTIABANK"],
             "FINANCIERA": ["FINANCIERA EFECTIVA S. A"]
         },
+        "NMIV": {
+            "BANCO": ["BANBIF", "BANCO PICHINCHA", "CONTINENTAL", "CREDITO", "INTERBANK", "SCOTIABANK"],
+            "CMAC": ["CMAC AREQUIPA", "CMAC HUANCAYO"],
+            "EDPYME": ["EDPYME MICASITA", "EMPRESA DE CREDITO VIVELA S. A"]
+        },
         "S-CRC": {
-            "BANCO": ["CREDITO", "INTERBANK"]
+            "BANCO": ["INTERBANK"]
         }
     },
     "PISCO": {
         "FCTP": {
-            "BANCO": ["CONTINENTAL"],
-            "CMAC": ["CMAC HUANCAYO", "CMAC ICA"],
-            "EDPYME": ["EDPYME MICASITA", "EMPRESA DE CREDITO VIVELA S.A."]
-        },
-        "NCMV": {
-            "BANCO": ["BANBIF", "CREDITO", "CONTINENTAL", "INTERBANK"],
-            "CMAC": ["CMAC SULLANA"]
-        },
-        "NMIV": {
-            "BANCO": ["CONTINENTAL", "CREDITO", "INTERBANK"],
-            "EDPYME": ["EMPRESA DE CREDITO VIVELA S.A."],
-            "CMAC": ["CMAC HUANCAYO"]
+            "EDPYME": ["EMPRESA DE CREDITO VIVELA S.A."]
         }
     },
     "PIURA": {
         "FCTP": {
-            "BANCO": ["BANCO PICHINCHA"],
-            "CAC": ["CAC PACIFICO"],
-            "CMAC": ["CMAC HUANCAYO", "CMAC TRUJILLO"],
+            "BANCO": ["CONTINENTAL"],
+            "CMAC": ["CMAC HUANCAYO"],
             "EDPYME": ["EDPYME MICASITA"],
-            "FINANCIERA": ["FINANCIERA EFECTIVA S. A"]
         },
         "NCMV": {
-            "BANCO": ["BANBIF", "BANCO PICHINCHA", "COMERCIO", "CONTINENTAL", "CREDITO", "INTERBANK", "SCOTIABANK"],
-            "CMAC": ["CMAC HUANCAYO", "CMAC SULLANA"],
-            "EDPYME": ["EDPYME MICASITA"],
-            "FINANCIERA": ["FINANCIERA EFECTIVA S. A", "CREDISCOTIA"]
+            "BANCO": ["BANCO PICHINCHA", "CREDITO"]
         },
         "NMIV": {
-            "BANCO": ["BANBIF", "BANCO PICHINCHA", "COMERCIO", "CONTINENTAL", "CREDITO", "INTERBANK", "SCOTIABANK"],
-            "CMAC": ["CMAC HUANCAYO", "CMAC TRUJILLO"],
-            "EDPYME": ["EDPYME MICASITA", "EMPRESA DE CREDITO VIVELA S.A."],
-            "FINANCIERA": ["FINANCIERA EFECTIVA S. A"]
-        }
-    },
-    "SECHURA": {
-        "NMIV": {
-            "BANCO": ["CREDITO"],
-            "CMAC": ["CMAC HUANCAYO"]
+            "BANCO": ["CREDITO", "INTERBANK"]
         }
     },
     "SULLANA": {
         "FCTP": {
-            "BANCO": ["BANBIF", "CONTINENTAL"],
-            "CAC": ["CAC PACIFICO"],
-            "CMAC": ["CMAC AREQUIPA", "CMAC TRUJILLO", "CMAC HUANCAYO"],
-            "CRAC": ["CRAC RAIZ"],
-            "EDPYME": ["EMPRESA DE CREDITO VIVELA S.A.", "EDPYME MICASITA"],
-            "FINANCIERA": ["FINANCIERA EFECTIVA S. A"]
+            "BANCO": ["CONTINENTAL", "INTERBANK"],
+            "CAC": ["CAC PACIFICO"]
         },
         "NCMV": {
-            "BANCO": ["BANBIF", "BANCO PICHINCHA", "CONTINENTAL", "CREDITO"]
+            "CMAC": ["CMAC HUANCAYO"]
         },
         "NMIV": {
-            "BANCO": ["BANCO PICHINCHA", "CONTINENTAL", "CREDITO"],
-            "CMAC": ["CMAC AREQUIPA", "CMAC HUANCAYO", "CMAC TRUJILLO"],
-            "FINANCIERA": ["FINANCIERA EFECTIVA S. A"]
+            "CMAC": ["CMAC AREQUIPA", "CMAC HUANCAYO"]
         }
     },
     "TRUJILLO": {
         "FCTP": {
-            "BANCO": ["BANCO PICHINCHA", "INTERBANK", "SCOTIABANK", "CONTINENTAL"],
-            "CAC": ["CAC PACIFICO"],
-            "CMAC": ["CMAC AREQUIPA", "CMAC HUANCAYO", "CMAC SULLANA", "CMAC TRUJILLO"],
+            "CMAC": ["CMAC TRUJILLO"],
             "EDPYME": ["EDPYME MICASITA", "EMPRESA DE CREDITO VIVELA S.A."]
         },
         "NCMV": {
-            "BANCO": ["BANBIF", "BANCO PICHINCHA", "COMERCIO", "CONTINENTAL", "CREDITO", "INTERBANK", "SCOTIABANK"],
-            "CMAC": ["CMAC AREQUIPA", "CMAC CUSCO", "CMAC HUANCAYO", "CMAC TRUJILLO"],
-            "EDPYME": ["EDPYME MICASITA"]
+            "BANCO": ["CREDITO"]
         },
         "NMIV": {
-            "BANCO": ["BANBIF", "BANCO PICHINCHA", "COMERCIO", "CONTINENTAL", "CREDITO", "INTERBANK", "SCOTIABANK"],
-            "CMAC": ["CMAC AREQUIPA", "CMAC CUSCO", "CMAC HUANCAYO", "CMAC TRUJILLO"],
-            "EDPYME": ["EDPYME MICASITA", "EMPRESA DE CREDITO VIVELA S.A."]
+            "BANCO": ["CREDITO", "INTERBANK"]
         }
     },
     "VIRU": {
         "FCTP": {
-            "BANCO": ["CONTINENTAL"],
             "CAC": ["CAC PACIFICO"]
         },
         "NCMV": {
-            "BANCO": ["BANCO PICHINCHA", "CONTINENTAL"]
-        },
-        "NMIV": {
-            "CMAC": ["CMAC AREQUIPA"]
+            "BANCO": ["CONTINENTAL"]
         }
     }
 };
