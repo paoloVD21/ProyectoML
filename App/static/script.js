@@ -1,3 +1,19 @@
+// Función para validar que el valor ingresado sea mayor que un valor mínimo
+function validarMonto(valor, minimo) {
+    return valor > minimo;
+}
+
+// Función para verificar que el campo contiene solo números y no letras ni símbolos
+function esNumeroValido(valor) {
+    return /^\d+(\.\d{1,2})?$/.test(valor);  // Verifica solo números y hasta dos decimales
+}
+
+// Función para mostrar mensajes de error
+function mostrarError(mensaje) {
+    alert(mensaje);
+    return false;
+}
+
 // Toggle de secciones y botones navbar
 const btnManual = document.getElementById('btnManual');
 const btnCSV = document.getElementById('btnCSV');
@@ -32,12 +48,12 @@ const dataProvincia = {
             "CMAC": ["CMAC CUSCO"]
         },
         "NCMV": {
-            "BANCO": ["CREDITO", "INTERBANK"],
+            "BANCO": ["INTERBANK"],
             "CMAC": ["CMAC AREQUIPA", "CMAC CUSCO", "CMAC HUANCAYO"]
         },
         "NMIV": {
-            "BANCO": ["CREDITO", "INTERBANK"],
-            "CMAC": ["CMAC AREQUIPA", "CMAC CUSCO", "CMAC HUANCAYO"]
+            "BANCO": ["INTERBANK"],
+            "CMAC": ["CMAC AREQUIPA"]
         }
     },
     "CALLAO": {
@@ -47,11 +63,6 @@ const dataProvincia = {
         },
         "NMIV": {
             "BANCO": ["CONTINENTAL", "INTERBANK"]
-        }
-    },
-    "CANIETE": {
-        "FCTP": {
-            "BANCO": ["BANCO PICHINCHA", "CONTINENTAL"]
         }
     },
     "CHEPEN": {
@@ -222,76 +233,41 @@ document.addEventListener("DOMContentLoaded", () => {
     clearSelect(ifiSelect);
 });
 
-// Procesar CSV
-document.getElementById('procesarCSV').addEventListener('click', () => {
-    // Obtener el elemento input donde se selecciona el archivo CSV
-    const input = document.getElementById('csvFile');
-    const output = document.getElementById('csvOutput');
-
-    // Limpiar cualquier contenido previo en el área de salida
-    output.textContent = '';
-
-    // Verificar si el usuario seleccionó algún archivo
-    if (!input.files.length) {
-        alert('Por favor, selecciona un archivo CSV.');
-        return;
-    }
-
-    const file = input.files[0];
-    const reader = new FileReader();
-
-    // Definir qué hacer cuando la lectura del archivo termine correctamente
-    reader.onload = function (e) {
-        const text = e.target.result;
-        const lines = text.split('\n').filter(line => line.trim() !== '');
-        output.textContent = `Archivo cargado con ${lines.length} líneas.\n\nPrimeras líneas:\n${lines.slice(0, 5).join('\n')}`;
-        console.log('Contenido CSV:', lines.slice(0, 5));
-        // Aquí puedes añadir procesamiento extra para usar el CSV en predicción
-    };
-
-    // Definir qué hacer si hay un error al leer el archivo
-    reader.onerror = function () {
-        alert('No se pudo leer el archivo.');
-    };
-
-    // Iniciar la lectura del archivo como texto plano
-    reader.readAsText(file);
-});
-
-// Eliminar CSV cargado
-document.getElementById("clearCSV").addEventListener("click", () => {
-    const csvFileInput = document.getElementById("csvFile");
-    const csvOutput = document.getElementById("csvOutput");
-    const csvMessage = document.getElementById("csvMessage");
-
-    // Limpiar input file (esto borra el archivo seleccionado)
-    csvFileInput.value = "";
-
-    // Limpiar salida y mensajes
-    csvOutput.textContent = "";
-    csvMessage.textContent = "";
-
-    alert("Archivo CSV y datos limpiados.");
-});
-
 // Enviar formulario manual a backend
 document.getElementById('formIndividual').addEventListener('submit', async (e) => {
     e.preventDefault();
 
+    // Obtener los valores de los campos
+    const montoCuotaInicial = parseFloat(document.getElementById('monto_cuota_inicial').value);
+    const montoValorVivienda = parseFloat(document.getElementById('monto_valor_vivienda').value);
+    const ingresoMensual = parseFloat(document.getElementById('ingreso_mensual').value);
+
+    // Validar si los campos son números y cumplen con los límites establecidos
+    if (!esNumeroValido(montoCuotaInicial) || !validarMonto(montoCuotaInicial, 10000)) {
+        return mostrarError('El monto de cuota inicial debe ser mayor a 10,000 soles y solo debe contener números.');
+    }
+
+    if (!esNumeroValido(montoValorVivienda) || !validarMonto(montoValorVivienda, 40000)) {
+        return mostrarError('El monto valor vivienda debe ser mayor a 40,000 soles y solo debe contener números.');
+    }
+
+    if (!esNumeroValido(ingresoMensual) || !validarMonto(ingresoMensual, 3000)) {
+        return mostrarError('El ingreso mensual debe ser mayor a 3,000 soles y solo debe contener números.');
+    }
+
+    // Si todo es válido, enviar la predicción
     const data = {
         PROVINCIA: provinciaSelect.value,
         PRODUCTO: productoSelect.value,
         TIPO_IFI: tipoIfiSelect.value,
         IFI: ifiSelect.value,
-        MONTO_CUOTA_INICIAL: parseFloat(document.getElementById('monto_cuota_inicial').value),
-        MONTO_VALOR_VIVIENDA: parseFloat(document.getElementById('monto_valor_vivienda').value),
-        INGRESO_MENSUAL_CLIENTE: parseFloat(document.getElementById('ingreso_mensual').value),
+        MONTO_CUOTA_INICIAL: montoCuotaInicial,
+        MONTO_VALOR_VIVIENDA: montoValorVivienda,
+        INGRESO_MENSUAL_CLIENTE: ingresoMensual,
     };
 
     try {
         const response = await fetch('https://proyectoml-37r0.onrender.com/predict_manual', {
-            // Local
-            // const response = await fetch('http://127.0.0.1:8000/predict_manual', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -307,52 +283,6 @@ document.getElementById('formIndividual').addEventListener('submit', async (e) =
 
     } catch (error) {
         alert('Error al obtener la predicción');
-        console.error(error);
-    }
-});
-
-// Enviar archivo CSV al backend
-document.getElementById('procesarCSV').addEventListener('click', async () => {
-    const input = document.getElementById('csvFile');
-    const output = document.getElementById('csvOutput');
-    const message = document.getElementById('csvMessage');
-
-    output.textContent = '';
-    message.textContent = 'Procesando...';  // Mensaje al usuario mientras se procesa el archivo
-
-    if (!input.files.length) {
-        alert('Por favor, selecciona un archivo CSV.');
-        return;
-    }
-
-    const formData = new FormData();
-    formData.append('file', input.files[0]);
-
-    try {
-        const response = await fetch('https://proyectoml-37r0.onrender.com/predict_csv', {
-            // Local
-            // const response = await fetch('http://127.0.0.1:8000/predict_csv', {
-            method: 'POST',
-            body: formData
-        });
-
-        if (!response.ok) throw new Error('Error en la petición');
-
-        // Crear un enlace para descargar el archivo CSV generado
-        const blob = await response.blob();
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.style.display = 'none';
-        a.href = url;
-        a.download = 'predicciones.csv';  // Este es el nombre del archivo CSV que el usuario descargará
-        document.body.appendChild(a);
-        a.click();
-        window.URL.revokeObjectURL(url);
-
-        message.textContent = 'Archivo descargado con éxito'; // Indica que la descarga fue exitosa
-
-    } catch (error) {
-        message.textContent = 'Error al procesar el archivo.';
         console.error(error);
     }
 });
