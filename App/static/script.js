@@ -29,7 +29,6 @@ const dataProvincia = {
     "AREQUIPA": {
         "FCTP": {
             "BANCO": ["BANCO PICHINCHA"],
-            "EDPYME": ["EDPYME MICASITA"],
             "CMAC": ["CMAC CUSCO"]
         },
         "NCMV": {
@@ -43,12 +42,11 @@ const dataProvincia = {
     },
     "CALLAO": {
         "NCMV": {
-            "BANCO": ["CONTINENTAL", "CREDITO", "INTERBANK"],
+            "BANCO": ["INTERBANK"],
             "EDPYME": ["EDPYME MICASITA"]
         },
         "NMIV": {
-            "BANCO": ["CONTINENTAL", "INTERBANK"],
-            "EDPYME": ["EDPYME MICASITA", "EMPRESA DE CREDITO VIVELA S.A."]
+            "BANCO": ["CONTINENTAL", "INTERBANK"]
         }
     },
     "CANIETE": {
@@ -64,63 +62,46 @@ const dataProvincia = {
     "CHICLAYO": {
         "FCTP": {
             "CMAC": ["CMAC HUANCAYO"],
-            "EDPYME": ["EDPYME MICASITA", "EMPRESA DE CREDITO VIVELA S.A."]
-        },
-        "NCMV": {
-            "BANCO": ["CREDITO", "BANCO PICHINCHA", "INTERBANK"],
-            "CMAC": ["CMAC HUANCAYO", "CMAC TRUJILLO"]
-        },
-        "NMIV": {
-            "BANCO": ["CREDITO", "INTERBANK"],
-            "EDPYME": ["EDPYME MICASITA", "EMPRESA DE CREDITO VIVELA S.A."]
-        }
-    },
-    "CHINCHA": {
-        "FCTP": {
-            "EDPYME": ["EDPYME MICASITA"],
-            "CMAC": ["CMAC ICA"]
-        }
-    },
-    "ICA": {
-        "FCTP": {
-            "BANCO": ["CONTINENTAL", "CREDITO"],
-            "CMAC": ["CMAC HUANCAYO", "CMAC ICA"]
-        },
-        "NCMV": {
-            "BANCO": ["BANBIF"],
-            "CMAC": ["CMAC ICA"],
-            "EDPYME": ["EDPYME MICASITA"]
-        },
-        "NMIV": {
-            "BANCO": ["BANBIF"],
-            "CMAC": ["CMAC ICA"],
-            "EDPYME": ["EDPYME MICASITA"]
-        }
-    },
-    "LAMBAYEQUE": {
-        "FCTP": {
-            "BANCO": ["CONTINENTAL"],
-            "EDPYME": ["EDPYME MICASITA"]
+            "EDPYME": ["EMPRESA DE CREDITO VIVELA S.A."]
         },
         "NCMV": {
             "BANCO": ["CREDITO"]
         },
         "NMIV": {
-            "CMAC": ["CMAC HUANCAYO"]
+            "BANCO": ["INTERBANK"]
+        }
+    },
+    "CHINCHA": {
+        "FCTP": {
+            "EDPYME": ["EDPYME MICASITA"]
+        }
+    },
+    "ICA": {
+        "FCTP": {
+            "CMAC": ["CMAC HUANCAYO", "CMAC ICA"]
+        },
+        "NMIV": {
+            "EDPYME": ["EDPYME MICASITA"]
+        },
+        "NCMV": {
+            "BANCO": ["BANBIF"]
+        }
+    },
+    "LAMBAYEQUE": {
+        "NCMV": {
+            "BANCO": ["CREDITO"]
         }
     },
     "LIMA": {
         "FCTP": {
-            "EDPYME": ["EDPYME MICASITA", "EMPRESA DE CREDITO VIVELA S.A."]
+            "EDPYME": ["EMPRESA DE CREDITO VIVELA S.A."]
         },
         "NCMV": {
-            "BANCO": ["BANBIF", "BANCO PICHINCHA", "CONTINENTAL", "CREDITO", "INTERBANK", "SCOTIABANK"],
+            "BANCO": ["BANBIF", "CONTINENTAL", "CREDITO", "INTERBANK"],
             "FINANCIERA": ["FINANCIERA EFECTIVA S. A"]
         },
         "NMIV": {
-            "BANCO": ["BANBIF", "BANCO PICHINCHA", "CONTINENTAL", "CREDITO", "INTERBANK", "SCOTIABANK"],
-            "CMAC": ["CMAC AREQUIPA", "CMAC HUANCAYO"],
-            "EDPYME": ["EDPYME MICASITA", "EMPRESA DE CREDITO VIVELA S. A"]
+            "BANCO": ["CONTINENTAL", "CREDITO", "INTERBANK"]
         },
         "S-CRC": {
             "BANCO": ["INTERBANK"]
@@ -135,45 +116,28 @@ const dataProvincia = {
         "FCTP": {
             "BANCO": ["CONTINENTAL"],
             "CMAC": ["CMAC HUANCAYO"],
-            "EDPYME": ["EDPYME MICASITA"],
+            "EDPYME": ["EMPRESA DE CREDITO VIVELA S.A."],
         },
         "NCMV": {
             "BANCO": ["BANCO PICHINCHA", "CREDITO"]
         },
         "NMIV": {
-            "BANCO": ["CREDITO", "INTERBANK"]
-        }
-    },
-    "SULLANA": {
-        "FCTP": {
-            "BANCO": ["CONTINENTAL", "INTERBANK"],
-            "CAC": ["CAC PACIFICO"]
-        },
-        "NCMV": {
-            "CMAC": ["CMAC HUANCAYO"]
-        },
-        "NMIV": {
-            "CMAC": ["CMAC AREQUIPA", "CMAC HUANCAYO"]
+            "BANCO": ["INTERBANK"]
         }
     },
     "TRUJILLO": {
         "FCTP": {
             "CMAC": ["CMAC TRUJILLO"],
-            "EDPYME": ["EDPYME MICASITA", "EMPRESA DE CREDITO VIVELA S.A."]
+            "EDPYME": ["EMPRESA DE CREDITO VIVELA S.A."],
+            "BANCO": ["CREDITO"]
         },
         "NCMV": {
             "BANCO": ["CREDITO"]
-        },
-        "NMIV": {
-            "BANCO": ["CREDITO", "INTERBANK"]
         }
     },
     "VIRU": {
         "FCTP": {
             "CAC": ["CAC PACIFICO"]
-        },
-        "NCMV": {
-            "BANCO": ["CONTINENTAL"]
         }
     }
 };
